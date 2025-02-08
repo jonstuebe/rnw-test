@@ -1,10 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { render } from "react-dom";
+import App from "./App";
+import { disableIOSZoom } from "@smartrent/utils";
+import { Providers } from "./Providers";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+import "react-native-gesture-handler";
+import "resize-observer-polyfill/dist/ResizeObserver.global";
+
+import "./index.css";
+
+disableIOSZoom();
+
+render(
+  <Providers>
     <App />
-  </StrictMode>,
-)
+  </Providers>,
+  document.getElementById("root")
+);

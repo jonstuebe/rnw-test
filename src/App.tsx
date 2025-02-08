@@ -22,7 +22,6 @@ function App() {
     >
       <VStack spacing={spacing.md} style={{ maxWidth: 448 }}>
         <Banner
-          color="success"
           title="Your hub connection is not stable"
           leftDetail={<BannerIcon icon={ExclamationCircleOutline} />}
           bottomDetail={
@@ -46,6 +45,7 @@ function App() {
           onClose={() => {
             alert("Banner onClose triggered");
           }}
+          color="success"
         >
           Please connect to Wi-Fi or Ethernet network for the best experience.
         </Banner>

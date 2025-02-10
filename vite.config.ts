@@ -4,7 +4,28 @@ import reactNativeWeb from "vite-plugin-react-native-web";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), reactNativeWeb()],
+  plugins: [
+    react({
+      babel: {
+        // include: [/node_modules\/(react-native|@react-native)/],
+        // presets: ["@babel/preset-env", "@babel/preset-react"],
+        plugins: [
+          "@babel/plugin-proposal-nullish-coalescing-operator",
+          "@babel/plugin-transform-optional-chaining",
+          // [
+          //   "@babel/plugin-transform-modules-commonjs",
+          //   {
+          //     strict: false,
+          //     strictMode: false,
+          //     allowTopLevelThis: true,
+          //   },
+          // ],
+          "react-native-reanimated/plugin",
+        ],
+      },
+    }),
+    reactNativeWeb(),
+  ],
   resolve: {
     alias: {
       "react-native-linear-gradient": "react-native-web-linear-gradient",
